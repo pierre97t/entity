@@ -7,6 +7,7 @@ type Entity interface {
 	GetID() string
 	String() string
 	Init(params ...interface{}) error
+	Validate(params ...interface{}) error
 }
 
 // Std is a struct that helps to compose an entity setting default parameter to entity's procedures
@@ -29,6 +30,11 @@ func (s Std) String() string {
 
 // Init initializes default entity's parameters
 func (s Std) Init(params ...interface{}) error {
+	return nil
+}
+
+// Init initializes default entity's parameters
+func (s Std) Validate(params ...interface{}) error {
 	return nil
 }
 
