@@ -1,4 +1,4 @@
-module entity
+module github.com/pierre97t/entity
 
 go 1.15
 
