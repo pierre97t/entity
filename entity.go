@@ -10,10 +10,15 @@ type Entity interface {
 }
 
 // Std is a struct that helps to compose an entity setting default parameter to entity's procedures
-type Std struct{}
+type Std struct {
+	ID *string `db:"id,omitempty" api:"id,omitempty"`
+}
 
-// GetID retrieves entity's ID
+// GetID returns entity's ID
 func (s Std) GetID() string {
+	if s.ID != nil {
+		return *s.ID
+	}
 	return ""
 }
 
