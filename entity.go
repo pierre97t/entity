@@ -1,13 +1,16 @@
 package entity
 
-import uuid "github.com/satori/go.uuid"
+import (
+	er "github.com/pierre97t/error"
+	uuid "github.com/satori/go.uuid"
+)
 
 // Entity is the interface use to handle data on the application
 type Entity interface {
 	GetID() string
 	String() string
-	Init(params ...interface{}) error
-	Validate(params ...interface{}) error
+	Init(params ...interface{}) *er.Error
+	Validate(params ...interface{}) *er.Error
 }
 
 // Std is a struct that helps to compose an entity setting default parameter to entity's procedures
@@ -29,12 +32,12 @@ func (s Std) String() string {
 }
 
 // Init initializes default entity's parameters
-func (s Std) Init(params ...interface{}) error {
+func (s Std) Init(params ...interface{}) *er.Error {
 	return nil
 }
 
 // Init initializes default entity's parameters
-func (s Std) Validate(params ...interface{}) error {
+func (s Std) Validate(params ...interface{}) *er.Error {
 	return nil
 }
 
